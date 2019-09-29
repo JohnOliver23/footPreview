@@ -14,8 +14,8 @@ import { Link } from 'react-router-dom';
 
 const estilos = makeStyles(theme => ({
   root: {
-    width: '100%',
-    backgroundColor: theme.palette.background.paper
+    width: '50%',
+    marginLeft:'25%'
   },
   avatar: {
     flex: 'none'
@@ -26,6 +26,9 @@ const estilos = makeStyles(theme => ({
   },
   item:{
     flex: '1 !important'
+  },
+  container:{
+    
   }
 
 }));
@@ -44,7 +47,8 @@ function Jogos(props) {
                 container
                 direction="row"
                 justify="space-between"
-                alignItems="center">
+                alignItems="center"
+                className={classes.container}>  
                 <Grid item xs={6}>
                   <MenuItem className={classes.item} to={`/time/${jogo.homeTeam.id}`} component={Link}>
                     <ListItem  >
@@ -60,13 +64,13 @@ function Jogos(props) {
                 <Grid item xs={6}>
                 <MenuItem className={classes.item} to={`/time/${jogo.awayTeam.id}`} component={Link}>
                     <ListItem  >
-                      <ListItemAvatar>
+                      <ListItemText primary={jogo.awayTeam.name} />
+                    </ListItem >
+                    <ListItemAvatar>
                         <Avatar>
                           <ListItemText classes={{ root: classes.avatar, primary: classes.item }} primary={`${jogo.codigoid}`} />
                         </Avatar>
-                      </ListItemAvatar>
-                      <ListItemText primary={jogo.awayTeam.name} />
-                    </ListItem >
+                    </ListItemAvatar>
                   </MenuItem>
                 </Grid>
               </Grid>
